@@ -1,0 +1,35 @@
+# TP7 partie 4 : pile Compose à compléter.
+name: visits
+
+services:
+  app:
+    build: .
+    image: visits-app:local
+    ports:
+      - "3000:3000"
+    environment:
+      PGHOST: db
+      PGPORT: 5432
+      # TODO : PGUSER, PGPASSWORD et PGDATABASE lus depuis le fichier .env
+      #        (syntaxe ${POSTGRES_USER})
+    # TODO : attendre que db soit "healthy" (depends_on + condition)
+    # TODO : réseaux frontend et backend
+    restart: unless-stopped
+
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    # TODO : volume nommé pgdata monté sur /var/lib/postgresql/data
+    # TODO : healthcheck avec pg_isready
+    # TODO : réseau backend uniquement (aucun port publié)
+
+  adminer:
+    image: adminer:5
+    ports:
+      - "8080:8080"
+    # TODO : réseau backend
+
+# TODO : déclarer le volume pgdata et les réseaux frontend / backend
