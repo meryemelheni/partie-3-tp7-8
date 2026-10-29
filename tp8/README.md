@@ -43,10 +43,21 @@ Les tests d'intégration (`tests/integration/contact.int.test.js`) utilisent un 
 - **Base de données non vide** : les tests d'intégration échouaient car la table contenait déjà des données, j'ai ajouté un `TRUNCATE TABLE` dans le `beforeAll`.
 
 ## 7. Captures
-Les captures sont disponibles dans `captures/` :
-- `validation-400.png` : erreur de validation avec détails
-- `helmet-headers.png` : headers de sécurité
-- `rate-limit-429.png` : rate limiting (429)
-- `tests-ok.png` : les 13 tests passent
-- `coverage.png` : rapport de couverture
-- `integration-ok.png` : tests d'intégration PostgreSQL
+
+### Erreur de validation
+![validation-400](captures/validation-400.png)
+
+### Headers de sécurité
+![helmet-headers](captures/helmet-headers.png)
+
+### Rate limiting
+![rate-limit-429](captures/rate-limit-429.png)
+
+### Tests unitaires
+![tests-ok](captures/tests-ok.png)
+
+### Couverture
+![coverage](captures/coverage.png)
+
+### Tests d'intégration
+![integration-ok](captures/integration-ok.png)
